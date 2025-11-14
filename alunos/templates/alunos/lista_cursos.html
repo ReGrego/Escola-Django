@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lista de Cursos</title>
+</head>
+<body>
+    <h1>Cursos Cadastrados</h1>
+    <ul>
+        {% for curso in cursos %}
+            <li>
+                <strong>{{ curso.titulo }}</strong> - {{ curso.descricao }}
+                <br>
+                <em>Alunos matriculados:</em>
+                <ul>
+                    {% for aluno in curso.alunos.all %}
+                        <li>{{ aluno.nome }} {{ aluno.sobrenome }} ({{ aluno.email }})</li>
+                    {% empty %}
+                        <li>Nenhum aluno matriculado.</li>
+                    {% endfor %}
+                </ul>
+            </li>
+        {% empty %}
+            <li>Nenhum curso cadastrado.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
+
