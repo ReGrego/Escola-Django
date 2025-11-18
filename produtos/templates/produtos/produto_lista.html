@@ -1,0 +1,9 @@
+<h1>Produtos</h1>
+<ul>
+  {% for produto in produtos %}
+    <li>{{ produto.nome }} - {{ produto.preco }} - {{ produto.validade }}</li>
+  {% empty %}
+    <li>Nenhum produto cadastrado.</li>
+  {% endfor %}
+</ul>
+<a href="{% url 'produtos:produto_new' %}">Adicionar novo produto</a>
